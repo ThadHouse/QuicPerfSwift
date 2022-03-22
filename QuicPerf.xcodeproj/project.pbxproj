@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		728FE6F327E91C4B00FDCF23 /* QuicMs.m in Sources */ = {isa = PBXBuildFile; fileRef = 728FE6F227E91C4B00FDCF23 /* QuicMs.m */; };
+		728FE6F827E9231300FDCF23 /* libmsquic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 728FE6F727E9230A00FDCF23 /* libmsquic.a */; };
 		72CE095027E9102800E196D0 /* QuicPerfApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE094F27E9102800E196D0 /* QuicPerfApp.swift */; };
 		72CE095227E9102800E196D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE095127E9102800E196D0 /* ContentView.swift */; };
 		72CE095427E9102900E196D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72CE095327E9102900E196D0 /* Assets.xcassets */; };
@@ -14,6 +16,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		728FE6F127E91C4B00FDCF23 /* QuicPerf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuicPerf-Bridging-Header.h"; sourceTree = "<group>"; };
+		728FE6F227E91C4B00FDCF23 /* QuicMs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuicMs.m; sourceTree = "<group>"; };
+		728FE6F527E91C9F00FDCF23 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GitHub; path = ../../../GitHub; sourceTree = "<group>"; };
+		728FE6F627E91DC300FDCF23 /* QuicMs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuicMs.h; sourceTree = "<group>"; };
+		728FE6F727E9230A00FDCF23 /* libmsquic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmsquic.a; path = QuicPerf/libmsquic.a; sourceTree = "<group>"; };
 		72CE094C27E9102800E196D0 /* QuicPerf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuicPerf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72CE094F27E9102800E196D0 /* QuicPerfApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuicPerfApp.swift; sourceTree = "<group>"; };
 		72CE095127E9102800E196D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728FE6F827E9231300FDCF23 /* libmsquic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		728FE6F427E91C9F00FDCF23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				728FE6F727E9230A00FDCF23 /* libmsquic.a */,
+				728FE6F527E91C9F00FDCF23 /* GitHub */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		72CE094327E9102800E196D0 = {
 			isa = PBXGroup;
 			children = (
 				72CE094E27E9102800E196D0 /* QuicPerf */,
 				72CE094D27E9102800E196D0 /* Products */,
+				728FE6F427E91C9F00FDCF23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +73,9 @@
 				72CE095127E9102800E196D0 /* ContentView.swift */,
 				72CE095327E9102900E196D0 /* Assets.xcassets */,
 				72CE095527E9102900E196D0 /* Preview Content */,
+				728FE6F227E91C4B00FDCF23 /* QuicMs.m */,
+				728FE6F627E91DC300FDCF23 /* QuicMs.h */,
+				728FE6F127E91C4B00FDCF23 /* QuicPerf-Bridging-Header.h */,
 			);
 			path = QuicPerf;
 			sourceTree = "<group>";
@@ -99,6 +120,7 @@
 				TargetAttributes = {
 					72CE094B27E9102800E196D0 = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -137,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728FE6F327E91C4B00FDCF23 /* QuicMs.m in Sources */,
 				72CE095227E9102800E196D0 /* ContentView.swift in Sources */,
 				72CE095027E9102800E196D0 /* QuicPerfApp.swift in Sources */,
 			);
@@ -264,6 +287,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuicPerf/Preview Content\"";
@@ -279,10 +303,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QuicPerf",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.QuicPerf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "QuicPerf/QuicPerf-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -293,6 +323,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuicPerf/Preview Content\"";
@@ -308,10 +339,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QuicPerf",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.QuicPerf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "QuicPerf/QuicPerf-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

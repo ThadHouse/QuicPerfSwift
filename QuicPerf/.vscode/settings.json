@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "msquic.h": "c",
+        "msquic_posix.h": "c"
+    }
+}
